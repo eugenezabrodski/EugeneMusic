@@ -13,8 +13,9 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
+        let searchVC: SearchViewController = SearchViewController.loadFromStoryboard()
         viewControllers = [
-            generateVC(rootViewController: SearchViewController(), image: UIImage(systemName: "waveform.badge.magnifyingglass"), title: "Search"),
+            generateVC(rootViewController: searchVC, image: UIImage(systemName: "waveform.badge.magnifyingglass"), title: "Search"),
             generateVC(rootViewController: ViewController(), image: UIImage(systemName: "music.note.list"), title: "Library")
         ]
     }
