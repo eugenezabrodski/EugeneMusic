@@ -30,6 +30,9 @@
 		63BC6A192B74D7D300FD54A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 63BC6A182B74D7D300FD54A7 /* Alamofire */; };
 		63BC6A1B2B74DB5800FD54A7 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC6A1A2B74DB5800FD54A7 /* SearchResponse.swift */; };
 		63BC6A1D2B74E48600FD54A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC6A1C2B74E48600FD54A7 /* NetworkService.swift */; };
+		63F4BA022B7A850700C9AF15 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4BA012B7A850700C9AF15 /* FooterView.swift */; };
+		63F4BA052B7A8D3A00C9AF15 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F4BA042B7A8D3A00C9AF15 /* TrackDetailView.xib */; };
+		63F4BA072B7A8D5300C9AF15 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4BA062B7A8D5300C9AF15 /* TrackDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		63BC6A152B74C5D600FD54A7 /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
 		63BC6A1A2B74DB5800FD54A7 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		63BC6A1C2B74E48600FD54A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		63F4BA012B7A850700C9AF15 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		63F4BA042B7A8D3A00C9AF15 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		63F4BA062B7A8D5300C9AF15 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,8 @@
 		636326042B7611D1007CD5E2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				63F4BA032B7A8D2100C9AF15 /* TrackDetailView */,
+				63F4BA002B7A84F800C9AF15 /* FooterView */,
 				636326282B762347007CD5E2 /* Cell */,
 				636326232B7613FC007CD5E2 /* SearchViewController.storyboard */,
 				636326192B7612CF007CD5E2 /* SearchViewController.swift */,
@@ -163,6 +171,23 @@
 			path = EugeneMusic;
 			sourceTree = "<group>";
 		};
+		63F4BA002B7A84F800C9AF15 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				63F4BA012B7A850700C9AF15 /* FooterView.swift */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		63F4BA032B7A8D2100C9AF15 /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				63F4BA042B7A8D3A00C9AF15 /* TrackDetailView.xib */,
+				63F4BA062B7A8D5300C9AF15 /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,6 +259,7 @@
 				6363262A2B76236C007CD5E2 /* TrackCell.xib in Resources */,
 				63BC6A092B74C4A100FD54A7 /* Assets.xcassets in Resources */,
 				636326242B7613FC007CD5E2 /* SearchViewController.storyboard in Resources */,
+				63F4BA052B7A8D3A00C9AF15 /* TrackDetailView.xib in Resources */,
 				63BC6A072B74C49F00FD54A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +276,7 @@
 				63BC6A042B74C49F00FD54A7 /* ViewController.swift in Sources */,
 				63BC6A1B2B74DB5800FD54A7 /* SearchResponse.swift in Sources */,
 				636326212B7612CF007CD5E2 /* SearchInteractor.swift in Sources */,
+				63F4BA022B7A850700C9AF15 /* FooterView.swift in Sources */,
 				6363262C2B76238C007CD5E2 /* TrackCell.swift in Sources */,
 				63BC6A002B74C49F00FD54A7 /* AppDelegate.swift in Sources */,
 				63BC6A142B74C52D00FD54A7 /* MainTabBarController.swift in Sources */,
@@ -259,6 +286,7 @@
 				6363261F2B7612CF007CD5E2 /* SearchModels.swift in Sources */,
 				63BC6A022B74C49F00FD54A7 /* SceneDelegate.swift in Sources */,
 				6363261C2B7612CF007CD5E2 /* SearchPresenter.swift in Sources */,
+				63F4BA072B7A8D5300C9AF15 /* TrackDetailView.swift in Sources */,
 				63BC6A1D2B74E48600FD54A7 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
