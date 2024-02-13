@@ -9,6 +9,8 @@ import UIKit
 
 class FooterView: UIView {
     
+    //MARK: - Properties
+    
     private var myLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -25,6 +27,8 @@ class FooterView: UIView {
         return loader
     }()
     
+    //MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpElements()
@@ -33,6 +37,8 @@ class FooterView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - SetupUI
     
     private func setUpElements() {
         addSubview(myLabel)
