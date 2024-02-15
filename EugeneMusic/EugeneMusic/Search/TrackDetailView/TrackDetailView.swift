@@ -16,8 +16,17 @@ protocol TrackMovingDelegate: AnyObject {
 
 class TrackDetailView: UIView {
     
+    //MARK: - Property for MiniPlayer
+    
+    @IBOutlet weak var miniTrackView: UIView!
+    @IBOutlet weak var miniGoForwardButton: UIButton!
+    @IBOutlet weak var miniTarckImageView: UIImageView!
+    @IBOutlet weak var miniTrackTitleLabel: UILabel!
+    @IBOutlet weak var miniPauseButton: UIButton!
+    
     //MARK: - Property
     
+    @IBOutlet weak var maximizedStackView: UIStackView!
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -43,6 +52,7 @@ class TrackDetailView: UIView {
         let scale: CGFloat = 0.8
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImageView.layer.cornerRadius = 5
+        setupGestures()
     }
     
     //MARK: - IBActions
@@ -81,10 +91,12 @@ class TrackDetailView: UIView {
         if player.timeControlStatus == .paused {
             player.play()
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            miniPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             enlargeTrackImageView()
         } else {
             player.pause()
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            miniPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             reduceTrackImageView()
         }
     }
@@ -92,14 +104,18 @@ class TrackDetailView: UIView {
     //MARK: - SetUpUI
     
     func set(viewModel: SearchViewModel.Cell) {
+        miniTrackTitleLabel.text = viewModel.trackName
         trackTitleLabel.text = viewModel.trackName
         authorTitleLabel.text = viewModel.artistName
         playTrack(previewURL: viewModel.previewURL)
         monitorStartTime()
         observePlayerCurrentTime()
+        playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        miniPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: string600 ?? "") else { return }
         trackImageView.sd_setImage(with: url, completed: nil)
+        miniTarckImageView.sd_setImage(with: url, completed: nil)
     }
     
     private func playTrack(previewURL: String?) {
@@ -108,6 +124,76 @@ class TrackDetailView: UIView {
         player.replaceCurrentItem(with: playerItem)
         player.play()
     }
+    
+    //MARK: - Maximazed and minimized gestures
+    
+    private func setupGestures() {
+        miniTrackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximazed)))
+        miniTrackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissPan)))
+    }
+    
+    @objc private func handleTapMaximazed() {
+        self.tabBarDelegate?.maximazeTrackDetailController(viewModel: nil)
+    }
+    
+    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            handleBegan()
+        case .changed:
+            handlePanChanged(gesture)
+        case .ended:
+            handleEnd(gesture)
+        default:
+            print("unknown default")
+        }
+    }
+    
+    private func handleBegan() {
+        
+    }
+    
+    private func handlePanChanged(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        self.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        let newAlpha = 1 + translation.y / 200
+        self.miniTrackView.alpha = newAlpha < 0 ? 0 : newAlpha
+        self.maximizedStackView.alpha = -translation.y / 200
+    }
+    
+    private func handleEnd(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        let velocity = gesture.velocity(in: self.superview)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1,options: .curveEaseOut) {
+            self.transform = .identity
+            if translation.y < -200 || velocity.y < -500 {
+                self.tabBarDelegate?.maximazeTrackDetailController(viewModel: nil)
+            } else {
+                self.miniTrackView.alpha = 1
+                self.maximizedStackView.alpha = 0
+            }
+        }
+    }
+    
+    @objc private func handleDismissPan(_ gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .changed:
+            let translation = gesture.translation(in: self.superview)
+            maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        case .ended:
+            let translation = gesture.translation(in: self.superview)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1,options: .curveEaseInOut) {
+                self.maximizedStackView.transform = .identity
+                if translation.y > 50 {
+                    self.tabBarDelegate?.minimazeTrackDetailController()
+                }
+            }
+        default:
+            print("default")
+        }
+    }
+    
     
     //MARK: - Animations
     

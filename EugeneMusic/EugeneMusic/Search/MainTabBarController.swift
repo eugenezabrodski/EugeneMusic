@@ -70,8 +70,8 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: MainTabBarControllerDelegate {
     
     func maximazeTrackDetailController(viewModel: SearchViewModel.Cell?) {
-        maximazeTopAnchor.isActive = true
         minimazeTopAnchor.isActive = false
+        maximazeTopAnchor.isActive = true
         maximazeTopAnchor.constant = 0
         bottomAnchorConstraint.constant = 0
         
@@ -82,6 +82,8 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        options: .curveEaseInOut) {
             self.view.layoutIfNeeded()
             self.tabBar.alpha = 0
+            self.trackDetailView.miniTrackView.alpha = 0
+            self.trackDetailView.maximizedStackView.alpha = 1
         }
         
         guard let viewModel = viewModel else  { return }
@@ -100,6 +102,8 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        options: .curveEaseInOut) {
             self.view.layoutIfNeeded()
             self.tabBar.alpha = 1
+            self.trackDetailView.miniTrackView.alpha = 1
+            self.trackDetailView.maximizedStackView.alpha = 0
         }
     }
     
