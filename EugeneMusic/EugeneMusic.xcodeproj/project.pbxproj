@@ -21,6 +21,8 @@
 		6363262C2B76238C007CD5E2 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363262B2B76238C007CD5E2 /* TrackCell.swift */; };
 		636326302B762D3A007CD5E2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6363262F2B762D3A007CD5E2 /* SDWebImage */; };
 		636326322B762D3A007CD5E2 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 636326312B762D3A007CD5E2 /* SDWebImageMapKit */; };
+		63942A792B7F4BD80038D19F /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63942A782B7F4BD80038D19F /* Library.swift */; };
+		63942A7B2B7F648E0038D19F /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63942A7A2B7F648E0038D19F /* UserDefaults.swift */; };
 		63BC6A002B74C49F00FD54A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC69FF2B74C49F00FD54A7 /* AppDelegate.swift */; };
 		63BC6A022B74C49F00FD54A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC6A012B74C49F00FD54A7 /* SceneDelegate.swift */; };
 		63BC6A042B74C49F00FD54A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC6A032B74C49F00FD54A7 /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 		636326252B761654007CD5E2 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		636326292B76236C007CD5E2 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		6363262B2B76238C007CD5E2 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		63942A782B7F4BD80038D19F /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		63942A7A2B7F648E0038D19F /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		63BC69FC2B74C49F00FD54A7 /* EugeneMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EugeneMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC69FF2B74C49F00FD54A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63BC6A012B74C49F00FD54A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +88,6 @@
 		636326042B7611D1007CD5E2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				63BC6A132B74C52D00FD54A7 /* MainTabBarController.swift */,
 				63F4BA032B7A8D2100C9AF15 /* TrackDetailView */,
 				63F4BA002B7A84F800C9AF15 /* FooterView */,
 				636326282B762347007CD5E2 /* Cell */,
@@ -123,6 +126,7 @@
 				636326252B761654007CD5E2 /* UIViewController + Storyboard.swift */,
 				6353BA2E2B7B622000C4508D /* CMTime + Extension.swift */,
 				6353BA302B7B724400C4508D /* Nib.swift */,
+				63942A7A2B7F648E0038D19F /* UserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -166,6 +170,8 @@
 				636326142B761274007CD5E2 /* Delegates */,
 				636326132B761260007CD5E2 /* Services */,
 				636326042B7611D1007CD5E2 /* Search */,
+				63BC6A132B74C52D00FD54A7 /* MainTabBarController.swift */,
+				63942A782B7F4BD80038D19F /* Library.swift */,
 				63BC6A032B74C49F00FD54A7 /* ViewController.swift */,
 				63BC6A152B74C5D600FD54A7 /* SearchMusicViewController.swift */,
 				636326272B761667007CD5E2 /* Helpers */,
@@ -282,6 +288,7 @@
 				63BC6A042B74C49F00FD54A7 /* ViewController.swift in Sources */,
 				63BC6A1B2B74DB5800FD54A7 /* SearchResponse.swift in Sources */,
 				636326212B7612CF007CD5E2 /* SearchInteractor.swift in Sources */,
+				63942A7B2B7F648E0038D19F /* UserDefaults.swift in Sources */,
 				63F4BA022B7A850700C9AF15 /* FooterView.swift in Sources */,
 				6353BA2F2B7B622000C4508D /* CMTime + Extension.swift in Sources */,
 				6363262C2B76238C007CD5E2 /* TrackCell.swift in Sources */,
@@ -294,6 +301,7 @@
 				6363261F2B7612CF007CD5E2 /* SearchModels.swift in Sources */,
 				63BC6A022B74C49F00FD54A7 /* SceneDelegate.swift in Sources */,
 				6363261C2B7612CF007CD5E2 /* SearchPresenter.swift in Sources */,
+				63942A792B7F4BD80038D19F /* Library.swift in Sources */,
 				63F4BA072B7A8D5300C9AF15 /* TrackDetailView.swift in Sources */,
 				63BC6A1D2B74E48600FD54A7 /* NetworkService.swift in Sources */,
 			);

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol MainTabBarControllerDelegate: AnyObject {
     func minimazeTrackDetailController()
@@ -30,9 +31,14 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
         setupTrackDetailView()
         searchVC.tabBarDelegate = self
+        var library = Library()
+        library.tabBarDelegate = self
+        let hostingVC = UIHostingController(rootView: library)
+        hostingVC.tabBarItem.image = UIImage(systemName: "music.note.house.fill")
+        hostingVC.tabBarItem.title = "Library"
         viewControllers = [
             generateVC(rootViewController: searchVC, image: UIImage(systemName: "waveform.badge.magnifyingglass"), title: "Search"),
-            generateVC(rootViewController: ViewController(), image: UIImage(systemName: "music.note.list"), title: "Library")
+            hostingVC
         ]
     }
     

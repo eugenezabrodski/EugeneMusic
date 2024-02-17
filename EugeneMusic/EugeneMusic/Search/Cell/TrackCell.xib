@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,9 +42,20 @@
                         <color key="textColor" red="0.4941176471" green="0.4941176471" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRe-hl-SDW">
+                        <rect key="frame" x="353" y="34" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" systemColor="systemPinkColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="plus.app.fill" catalog="system"/>
+                        <connections>
+                            <action selector="addTrackAction:" destination="lcN-A3-0vN" eventType="touchUpInside" id="dxe-Qb-4q7"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addTrackOutlet" destination="MRe-hl-SDW" id="T6K-Ic-ajA"/>
                 <outlet property="artistNameLabel" destination="GIV-Cx-Qhi" id="F6M-GR-dha"/>
                 <outlet property="collectionNameLabel" destination="jwU-PI-Gdz" id="Eli-0y-AQI"/>
                 <outlet property="trackImageView" destination="XZi-Z0-qjX" id="QUd-yN-xtF"/>
@@ -52,4 +64,10 @@
             <point key="canvasLocation" x="406.87022900763355" y="-51.408450704225352"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
